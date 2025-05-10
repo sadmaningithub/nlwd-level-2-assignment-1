@@ -76,20 +76,22 @@
     }
 
     enum Day {
-        Monday,
-        Tuesday,
-        Wednesday,
-        Thursday,
-        Friday,
-        Saturday,
-        Sunday
+        Monday = 'Weekday',
+        Tuesday = 'Weekday',
+        Wednesday = 'Weekday',
+        Thursday = 'Weekday',
+        Friday = 'Weekend',
+        Saturday = 'Weekday',
+        Sunday = 'Weekday'
     }
 
     function getDayType(day: Day): string {
-        if (day === Day.Sunday) {
+        if (day === Day.Friday) {
             return 'Weekend'
         }
-        return 'Weekday'
+        else{
+            return 'Weekday'
+        }
     }
 
     async function squareAsync(n: number): Promise<number> {
