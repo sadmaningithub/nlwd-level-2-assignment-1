@@ -3,7 +3,7 @@
 
 ## Contents
 
-- [What are some differences between interfaces and types in TypeScript?](#what-are-some-differences-between-interface-and-types-in-typescript)
+- [What are some differences between interfaces and types in TypeScript?](#what-are-some-differences-between-interfaces-and-types-in-typescript)
 - [Provide an example of using union and intersection types in TypeScript.](#provide-an-example-of-using-union-and-intersection-types-in-typescript.)
 
 
