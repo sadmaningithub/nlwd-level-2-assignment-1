@@ -18,7 +18,8 @@ Interface defines the shape of objects. It supports declaration merging. Which m
 Example:
 
 ```
-TS
+ts
+
 // Interface example
 interface Animal {
   name: string;
