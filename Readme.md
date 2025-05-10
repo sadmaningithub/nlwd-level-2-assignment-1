@@ -1,10 +1,19 @@
-<p> What are some differences between interfaces and types in TypeScript?</p>
+# TypeScript Blog
 
-<p> To define the shape of objects explicitly, both interface and type can be used. Both of these are handy in different circumstances. They have some important difference and use cases. Some of the main differences and characteristics:
+
+## Contents
+
+-[What are some differences between interfaces and types in TypeScript?](#blog1)
+-[Provide an example of using union and intersection types in TypeScript.](#blog2)
+
+
+## What are some differences between interfaces and types in TypeScript?
+
+To define the shape of objects explicitly, both interface and type can be used. Both of these are handy in different circumstances. They have some important difference and use cases. Some of the main differences and characteristics:
 
 1. Declaration and Extension
 
--Interface defines the shape of objects. It supports declaration merging. Which means multiple interfaces with same name can be defined. The compiler will merge them in to a single interface. Types don't have this feature.
+Interface defines the shape of objects. It supports declaration merging. Which means multiple interfaces with same name can be defined. The compiler will merge them in to a single interface. Types don't have this feature.
 
 Example:
 
@@ -13,15 +22,16 @@ interface Animal {
   name: string;
 }
 
-interface Animal { // Declaration merging is allowed
+// Declaration merging is allowed
+interface Animal { 
   age: number;
 }
 
+Interface can extend other interfaces using extends keyword. Types can extend other types using intersection '&' but cannot extend classes.
 
-- Interface can extend other interfaces using extends keyword. Types can extend other types using intersection '&' but cannot extend classes.
+Example:
 
 
-//
 interface Person {
   name: string;
   age: number;
@@ -31,7 +41,6 @@ interface Employee extends Person {
   employeeId: number;
 }
 
-//
 
 class Animal {
   name: string;
@@ -50,8 +59,6 @@ interface Dog extends Animal {
 }
 
 
-//
-
 // Type example
 type Person = {
   name: string;
@@ -65,18 +72,21 @@ type Employee = Person & { // Intersection type
 
 2. Use cases
 
--interface is best for defining the shape of objects. But type is more flexible and can shape primitive types, union, intersections, mapped types etc. 
+Interface is best for defining the shape of objects. But type is more flexible and can shape primitive types, union, intersections, mapped types etc. 
 
-//type Person = {
+Example:
+
+type Person = {
   name: string;
 };
 
-
-//type ID = string | number;
+type ID = string | number;
 
 3. Implements with classes
 
-- Both interface and type can be used with implements, but it preferred to use interface for class contracts.
+Both interface and type can be used with implements, but it preferred to use interface for class contracts.
+
+Example:
 
 interface Animal {
   name: string;
@@ -89,13 +99,60 @@ class Dog implements Animal {
 
 4. Mapped types 
 
-- Types can be used for mapped types. Interface cannot do mapped types.
+Types can be used for mapped types. Interface cannot do mapped types.
 
-//
+Example:
+
 type Keys = 'a' | 'b';
 type Flags = { [K in Keys]: boolean };
 
 
 
-</p>
+## Provide an example of using union and intersection types in TypeScript. 
+
+Union and intersection types are one of the fundamental concepts of Typescript. They play a vital role in type safety and flexibility. It allows developers to broaden the type or precise the type when needed. Here goes the example of using it in real world cases:
+
+Union Types Example: 
+
+type Price = string | number;
+
+function showType(price: Price): Price{
+  if(typeof price === 'string'){
+    console.log('The price passed a string')
+    return price;
+  }
+  else{
+    console.log('The price passed a number')
+    return price
+  }
+}
+
+console.log(showType('100'))
+
+
+Intersection Types Example:
+
+type Person = {
+  name: string;
+  age: number;
+};
+
+type TeacherInfo = {
+  teacherId: number;
+  department: string;
+};
+
+type TeacherProfile = Person & TeacherInfo;
+
+const teacher: TeacherProfile = {
+  name: "Alice",
+  age: 40,
+  teacherId: 12345,
+  department: "Engineering"
+};
+
+
+console.log(employee);
+
+
 
