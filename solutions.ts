@@ -76,20 +76,20 @@
     }
 
     enum Day {
-        Monday = 'Weekday',
-        Tuesday = 'Weekday',
-        Wednesday = 'Weekday',
-        Thursday = 'Weekday',
-        Friday = 'Weekend',
-        Saturday = 'Weekday',
-        Sunday = 'Weekday'
+        Monday,
+        Tuesday,
+        Wednesday,
+        Thursday,
+        Friday,
+        Saturday,
+        Sunday
     }
 
     function getDayType(day: Day): string {
         if (day === Day.Friday) {
             return 'Weekend'
         }
-        else{
+        else {
             return 'Weekday'
         }
     }
