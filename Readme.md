@@ -48,13 +48,11 @@ interface Employee extends Person {
 
 class Animal {
   name: string;
-  protected age: number;
-  private secret: string; // will NOT be included in interface
+  age: number;
 
-  constructor(name: string, age: number, secret: string) {
+  constructor(name: string, age: number) {
     this.name = name;
     this.age = age;
-    this.secret = secret;
   }
 }
 
